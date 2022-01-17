@@ -34,7 +34,7 @@ def get_gaussian_layer(kernel_size=3, sigma=2, channels=1):
     gaussian_filter = nn.Conv2d(in_channels=channels, out_channels=channels, kernel_size=kernel_size, groups=channels,
                                 bias=False, padding=kernel_size // 2)
 
-    gaussian_filter.weight.data = gaussian_kernel
+    gaussian_filter.weight.data = gaussian_kernel.cuda()
     gaussian_filter.weight.requires_grad = False
 
     return gaussian_filter
@@ -44,7 +44,7 @@ def get_laplacian_layer():
     laplacian_kernel = np.array([[-1, -1, -1], [-1, 8, -1], [-1, -1, -1]], dtype='float32')  # Laplacian
     laplacian_kernel = laplacian_kernel.reshape((1, 1, 3, 3))
     laplacian_filter = nn.Conv2d(1, 1, 3, bias=False)
-    laplacian_filter.weight.data = torch.from_numpy(laplacian_kernel)
+    laplacian_filter.weight.data = torch.from_numpy(laplacian_kernel).cuda()
     laplacian_filter.weight.requires_grad = False
     return laplacian_filter
 
@@ -53,8 +53,8 @@ def edge_loss(image1, image2):
     im1 = torch.mean(image1, 1, keepdim=True, out=None)  # color image 2 gray image
     im2 = torch.mean(image2, 1, keepdim=True, out=None)
 
-    blur_layer = get_gaussian_layer(kernel_size=5, sigma=2, channels=1).cuda()
-    laplacian_layer = get_laplacian_layer().cuda
+    blur_layer = get_gaussian_layer(kernel_size=5, sigma=2, channels=1)
+    laplacian_layer = get_laplacian_layer()
 
     blured_im1 = blur_layer(Variable(im1))
     blured_im2 = blur_layer(Variable(im2))
