@@ -2,6 +2,8 @@ Implement of ***"Cross-domain Spacecraft Component Segmentation Based on Edge Co
 
 **Authors**: Aodi Wu, Jianhong Zuo, Shengyang Zhang and Xue Wan
 
+[paper](https://drive.google.com/file/d/1UhDytqQ0qSbR6SdczMnEBcGMyCsEE4um/view?usp=sharing)
+
 Accepted by The 17th International Conference onDigital Image Processing (**ICDIP 2025**)
 
 # core code
