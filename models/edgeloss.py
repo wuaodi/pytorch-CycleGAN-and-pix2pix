@@ -64,3 +64,5 @@ def edge_loss(image1, image2):
 
     loss = torch.mean((edge_im1 - edge_im2) ** 2)  # mse
     return loss
+
+
