@@ -4,7 +4,7 @@ Implement of ***"Cross-domain Spacecraft Component Segmentation Based on Edge Co
 
 [paper](https://drive.google.com/file/d/1UhDytqQ0qSbR6SdczMnEBcGMyCsEE4um/view?usp=sharing)
 
-Accepted by The 17th International Conference onDigital Image Processing (**ICDIP 2025**)
+Accepted by The 17th International Conference on Digital Image Processing (**ICDIP 2025**)
 
 # core code
 ```
